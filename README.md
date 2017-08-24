@@ -18,3 +18,6 @@ DDRx设计指南
 * Pallas Fei
 * Will Yang
 
+打个赏
+----------
+![support](Drawings/support.png)
