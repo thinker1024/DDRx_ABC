@@ -1,8 +1,8 @@
-DDRx设计指南
+DDRx应用指南
 ============
 [![Join the chat at https://gitter.im/DDRx_ABC/Lobby](https://badges.gitter.im/DDRx_ABC/Lobby.svg)](https://gitter.im/DDRx_ABC/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-**DDRx设计指南**旨在理解和掌握DDRx相关的技术，包括基本原理、原理图设计、Layout设计、仿真以及软硬件测试。
+**DDRx应用指南**旨在理解和掌握DDRx相关的技术，包括基本原理、原理图设计、Layout设计、仿真以及软硬件测试。
 
 目标
 ----------
