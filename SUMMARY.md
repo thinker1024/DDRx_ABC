@@ -1,4 +1,4 @@
-[简介](README.md)
+* [简介](README.md)
 
 * [第一章：DDRx概览](ch1/Basic.md)
 	- [1.1 内存的类型](ch1/Types.md)
