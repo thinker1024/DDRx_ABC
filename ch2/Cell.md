@@ -49,6 +49,30 @@ Cell读写原理
 下文将针对差分感应放大器的作用做详细的说明
 
 ###读操作
-完整的读操作包含了四个阶段，分别是Precharge、Access、Sense、Restore。
 
+完整的读操作包含了四个阶段，分别是Precharge、Access、Sense、Restore。下文中将通过一个Bit 1数据读取的过程介绍以上四个阶段中的操作。
+
+####预充电(Prechange)
+
+在这个阶段，主要是针对Bitline上进行预充电，通过控制EQ信号，让Te1、Te2、Te3这三个晶体管处于导通状态，这样将Bitline和/Bitline线上的电压稳定在Vref上, $Vref = Vcc/2$。然后进入到下一个阶段。
+
+![Differential Sense Amplifer Read Precharge](../Drawings/Differential_Sense_Amp_Read_Precharge.png)
+
+####获取(Access)
+
+经过Precharge阶段，Bitline和/Bitline线上的电压已经稳定在Vref上了，此时，通过控制Wordline信号，将Ta晶体管导通。Storage Capacitor中存储正电荷会流向Bitline，继而将Bitline的电压拉升到 Vref+，然后进入到下一个阶段。
+
+![Differential Sense Amplifer Read Access](../Drawings/Differential_Sense_Amp_Access.png)
+
+####感应(Sense)
+由于在Access阶段，Bitline的电压被拉升到Vref+，Tn2会比Tn1更具导通性，Tp1则会比Tp2更具导通性。
+此时，SAN(Sense-Amplifier N-Fet Control)会被设定为逻辑0的电压，SAP(Sense-Amplifier P-Fet Control)则会被设定为逻辑1的电压，即Vcc。由于Tn2会比Tn1更具导通性，/Bitline上的电压会更快被SAN拉到逻辑0电压，同理，Bitline上的电压也会更快被SAP拉到逻辑1电压。接着Tp1和Tn2进入导通状态，Tp2和Tn1进入截止状态。最后，Bitline和/Bitline的电压都进入稳定状态，正确的呈现了Storage Capacitor所存储的Bit信息。
+
+![Differential Sense Amplifer Read Sense](../Drawings/Differential_Sense_Amp_Sense.png)
+
+####恢复(Restore)
+在完成Sense阶段的操作后，Bitline线处于稳定的逻辑1电压Vcc，此时Bitline会对Storage Capacitor进行充电。经过特定的时间后，Storage Capacitor的电荷就可以恢复到读取操作前的状态。
+最后，通过CSL信号，让Tc1和Tc2进入导通状态，外界就可以从Bitline上读取到具体的信息。
+
+![Differential Sense Amplifer Read Restore](../Drawings/Differential_Sense_Amp_Restore.png)
 
