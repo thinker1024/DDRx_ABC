@@ -62,6 +62,7 @@
 		- [4.5.3 IPC-III标准](ch4/IPCIII.md)
 		- [4.5.4 MIL美军标](ch4/MIL.md)
 		- [4.5.5 GJB国军标](ch4/GJB.md)
+	- [4.6 其它](ch4/Others.md)
 
 * [第五章：仿真分析](ch5/Simulation.md)
 	- [5.1 仿真工具介绍](ch5/tools.md)
